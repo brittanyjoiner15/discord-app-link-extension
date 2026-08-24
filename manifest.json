@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Discord → App",
+  "name": "Open Links in Discord App",
   "version": "2.0.0",
   "description": "Opens Discord web links in the Discord desktop app instead of the browser (except login/OAuth, the dev portal, and marketing pages).",
   "icons": {
