@@ -71,6 +71,10 @@ permissions — it only reads the URL of Discord pages you open.
 - `icons/` — extension icon (generic "open externally" glyph; not the Discord
   logo)
 
+## Privacy
+
+The extension collects no data whatsoever — see [`PRIVACY.md`](PRIVACY.md).
+
 ## License
 
 MIT — see [`LICENSE`](LICENSE).

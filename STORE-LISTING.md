@@ -135,6 +135,13 @@ Discord?" prompt with "Always allow" checked, or a simple before/after graphic
 https://github.com/brittanyjoiner15/discord-app-link-extension
 ```
 
+## Privacy policy URL
+*(dashboard → "Privacy practices" tab — required field)*
+
+```
+https://github.com/brittanyjoiner15/discord-app-link-extension/blob/main/PRIVACY.md
+```
+
 ## Suggested store tags/keywords
 *(reflected via the description; CWS has no separate keyword field)*
 
