@@ -96,6 +96,12 @@ The extension has a single purpose: to redirect Discord web URLs to the Discord 
 The extension runs a content script only on Discord's web hosts so it can read the current page's path and redirect it to the equivalent discord:// deep link. Access is limited to these hosts because those are the only URLs it acts on.
 ```
 
+**`storage`:**
+
+```
+Used only to remember, for the current browser session, the ID of the tab that was just redirected so the extension can close that leftover blank tab once the Discord app opens. Uses session storage, which is in memory and cleared when the browser closes. No URLs or personal data are stored.
+```
+
 **Remote code:** None. All code is contained in the package.
 
 ## Data usage disclosures

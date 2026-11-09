@@ -40,10 +40,13 @@
   // query string and hash so things like ?jump= still work.
   window.location.href = "discord://-" + path + location.search + location.hash;
 
-  // Don't close on a timer — that would yank the tab (and the "Open Discord?"
-  // dialog) before you can tick "Always allow". Wait until the tab loses
-  // visibility, which only happens AFTER the app opens and takes focus.
+  // Hand closing off to background.js — window.close() is blocked here for
+  // tabs the user opened. Don't close on a timer: that would yank the tab
+  // (and the "Open Discord?" dialog) before you can tick "Always allow".
+  chrome.runtime.sendMessage("redirected");
+
+  // Fallback: close if you switch away from the tab after the handoff.
   document.addEventListener("visibilitychange", function () {
-    if (document.hidden) window.close();
+    if (document.hidden) chrome.runtime.sendMessage("hidden");
   });
 })();

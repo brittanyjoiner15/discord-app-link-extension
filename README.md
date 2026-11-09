@@ -48,11 +48,16 @@ Edit the `KEEP_IN_BROWSER` list in [`redirect.js`](redirect.js) to change scope.
 
 Manifest V3 content script that runs at `document_start`. It reads the current
 path, bails on any excluded prefix, otherwise sets `window.location` to the
-`discord://` deep link. It closes the tab only on `visibilitychange` (i.e. after
-the app takes focus) so the *"Open Discord?"* dialog is never interrupted.
+`discord://` deep link, then tells a small background worker which tab it was.
 
-No background worker, no network requests, no data collection, no extra
-permissions — it only reads the URL of Discord pages you open.
+The worker (`background.js`) closes that tab once focus leaves Chrome (i.e. the
+app opened), or if you switch away from the tab. Closing has to happen there:
+Chrome blocks `window.close()` from pages on tabs the user opened. The
+*"Open Discord?"* dialog is Chrome UI, so it never triggers the close.
+
+No network requests and no data collection. The only extra permission is
+`storage`, used to remember which tab IDs to close (in session memory, cleared
+when Chrome quits).
 
 ## Notes & gotchas
 
